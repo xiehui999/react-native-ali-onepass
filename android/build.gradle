@@ -48,7 +48,7 @@ repositories {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.facebook.react:react-native:+'
-    implementation(name:'auth_number_product-2.12.3-log-online-standard-release', ext:'aar')
+    implementation(name:'auth_number_product-2.12.6.3-log-online-standard-release', ext:'aar')
     implementation(name:'crashshield-2.1.4-release', ext:'aar')
     implementation(name:'main-2.1.4-release', ext:'aar')
     implementation(name:'logger-2.1.4-release', ext:'aar')
