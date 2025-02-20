@@ -5,37 +5,26 @@ buildscript {
         maven(){ url 'https://maven.aliyun.com/repository/releases' }
         maven{ url "http://maven.aliyun.com/nexus/content/repositories/releases" }
     }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-    }
+    
 }
 
 apply plugin: 'com.android.library'
 
+def DEFAULT_COMPILE_SDK_VERSION   = 30
+def DEFAULT_BUILD_TOOLS_VERSION   = "29.0.3"
+def DEFAULT_TARGET_SDK_VERSION    = 30
+def DEFAULT_MIN_SDK_VERSION       = 16
 android {
-    compileSdkVersion 23
-    buildToolsVersion "26.0.1"
+    compileSdkVersion rootProject.hasProperty('compileSdkVersion') ? rootProject.compileSdkVersion : DEFAULT_COMPILE_SDK_VERSION
+    buildToolsVersion rootProject.hasProperty('buildToolsVersion') ? rootProject.buildToolsVersion : DEFAULT_BUILD_TOOLS_VERSION
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 22
+        minSdkVersion rootProject.hasProperty('minSdkVersion') ? rootProject.minSdkVersion : DEFAULT_MIN_SDK_VERSION
+        targetSdkVersion rootProject.hasProperty('targetSdkVersion') ? rootProject.targetSdkVersion : DEFAULT_TARGET_SDK_VERSION
         versionCode 1
-        versionName "1.0"
     }
     lintOptions {
         abortOnError false
-    }
-    repositories {
-        flatDir {
-            dirs 'libs'
-        }
-    }
-    sourceSets.main.jniLibs.srcDirs=['libs']
-
-    compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
     }
 }
 
