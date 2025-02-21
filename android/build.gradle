@@ -31,7 +31,7 @@ android {
 repositories {
     mavenCentral()
     maven(){ url 'https://maven.aliyun.com/repository/releases' }
-    maven{ url "http://maven.aliyun.com/nexus/content/repositories/releases" }
+    maven{ url "https://maven.aliyun.com/nexus/content/repositories/releases" }
 }
 
 dependencies {
